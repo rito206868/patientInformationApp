@@ -1,0 +1,98 @@
+{
+ "patients":
+[
+{
+  "id": "5e6a1f91cd6aa82c4148192a",
+  "dateOfBirth": "111256",
+  "mailId": "biplasar@in.ibm.co ",
+  "phone": "9748002691",
+  "medHistory": ["Allergies", "Anemia", "Depression", "Hypertension"],
+  "patientName": {
+    "firstName": "Biplab",
+    "lastName": "Sarkar"
+  },
+  "postalAddress": {
+    "line1": "Mandirtala",
+    "line2": "Howrah",
+    "city": "Kolkata",
+    "state": "WB",
+    "zip": "123456"
+  },
+  "maritalStatus": "MARRIED"
+}, 
+{
+  "id": "5e6a233642fdd545a095ff4c",
+  "dateOfBirth": "111256",
+  "mailId": "biplasar@in.ibm.co ",
+  "phone": "9748002691",
+  "medHistory": ["Allergies", "Anemia", "Depression", "Hypertension"],
+  "patientName": {
+    "firstName": "Biplab",
+    "lastName": "Sarkar"
+  },
+  "postalAddress": {
+    "line1": "Mandirtala",
+    "line2": "Howrah",
+    "city": "Kolkata",
+    "state": "WB",
+    "zip": "123456"
+  },
+  "maritalStatus": "Married"
+}, 
+{
+  "id": "5e6a24a5da4ba474698032be",
+  "dateOfBirth": "111256",
+  "mailId": "biplasar@in.ibm.co ",
+  "phone": "9748002691",
+  "medHistory": ["Allergies", "Anemia", "Depression", "Hypertension"],
+  "patientName": {
+    "firstName": "Biplab",
+    "lastName": "Sarkar"
+  },
+  "postalAddress": {
+    "line1": "Mandirtala",
+    "line2": "Howrah",
+    "city": "Kolkata",
+    "state": "WB",
+    "zip": "123456"
+  },
+  "maritalStatus": "Married"
+}, {
+  "id": "5e6a3058e72d0708c63c87d3",
+  "dateOfBirth": "111256",
+  "mailId": "biplasar@in.ibm.co ",
+  "phone": "9748002691",
+  "medHistory": ["Allergies", "Anemia", "Depression", "Hypertension"],
+  "patientName": {
+    "firstName": "Vasantha",
+    "lastName": "Kumar"
+  },
+  "postalAddress": {
+    "line1": "Bengaluru",
+    "line2": "Bengaluru",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "zip": "123456"
+  },
+  "maritalStatus": "Married"
+}, {
+  "id": "5e6a5163f0a99844eafe7458",
+  "dateOfBirth": "111256",
+  "mailId": "biplasar@in.ibm.co ",
+  "phone": "9748002691",
+  "medHistory": ["Allergies", "Anemia", "Depression", "Hypertension"],
+  "patientName": {
+    "firstName": "Anirban",
+    "lastName": "Roy"
+  },
+  "postalAddress": {
+    "line1": "Bengaluru",
+    "line2": "Bengaluru",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "zip": "123456"
+  },
+  "maritalStatus": "Married"
+}
+]
+}

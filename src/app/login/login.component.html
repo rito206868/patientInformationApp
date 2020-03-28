@@ -1,0 +1,50 @@
+<!--<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-toolbar fxLayout="row" fxLayoutAlign="center center" color="primary" class="navbar">
+        PatientInformationApp
+    </mat-toolbar>
+</div>
+-->
+<!--div class="main-div" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex = "25">
+        <mat-toolbar color="primary">Login</mat-toolbar>
+        <mat-card-content>
+            <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+                <mat-form-field>
+                    <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                </mat-form-field>      
+                <mat-form-field>
+                    <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+            <button  mat-raised-button (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div-->        
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Login</mat-card-title>
+    <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="login(loginForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="User Name" formControlName="username" id="username">
+          <mat-error *ngIf="hasError('username', 'required')">User Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" id="password">
+          <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+        <button type="button" mat-raised-button color="warn" (click)="loginForm.reset()">Reset</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

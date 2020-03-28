@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="navbar">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="onToggleSidenav()" *ngIf="logedUser != null">
+            <mat-icon>menu</mat-icon>
+        </button>
+        &nbsp;
+        <div>
+            PatientInformationApp
+        </div>
+        <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs *ngIf="logedUser != null">
+            <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+                <!--<a  mat-button  routerLink="/login" >Login</a>-->
+                <a mat-button routerLink="/home">Home</a>
+                <!--<a  mat-button  routerLink="/table">Patients</a>-->
+                <a mat-button routerLink="/login" type="submit">Logout</a>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,86 @@
+<div>
+    <ng-container *ngIf="logedUser != null">
+        <a mat-button routerLink="/home">Home</a>
+        <a mat-button routerLink="/login" type="submit">Logout</a>
+    </ng-container>
+</div>
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px"
+    fxLayoutGap.lt.md="20px">
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <!--div>
+        <a [routerLink]="['/owner/create']" mat-button color="primary">Create Owner</a>
+    </div-->
+</div>
+<table mat-table [dataSource]="dataSource" matSort >
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="150px">ID</th>
+        <td mat-cell *matCellDef="let patient">{{patient.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="patientName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="200px">PatientName</th>
+        <td mat-cell *matCellDef="let patient">{{patient.patientName.firstName}}&nbsp;{{patient.patientName.lastName}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="postalAddress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="200px">PostalAddress</th>
+        <td mat-cell *matCellDef="let patient">
+            {{patient.postalAddress.line1}}<br>
+            {{patient.postalAddress.line2}}<br>
+            {{patient.postalAddress.city}}, {{patient.postalAddress.state}}<br>
+            {{patient.postalAddress.zip}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="100px">Date of Birth</th>
+        <td mat-cell *matCellDef="let patient">{{patient.dateOfBirth}}</td>
+    </ng-container>
+    <ng-container matColumnDef="mailId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="200px">MailID</th>
+        <td mat-cell *matCellDef="let patient">{{patient.mailId}}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef width="100px">PhoneNo</th>
+        <td mat-cell *matCellDef="let patient">{{patient.phone}}</td>
+    </ng-container>
+    <ng-container matColumnDef="maritalStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header width="100px">MaritalStatus</th>
+        <td mat-cell *matCellDef="let patient">{{patient.maritalStatus}}</td>
+    </ng-container>
+    <ng-container matColumnDef="medicalHistory">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>MedicalHistory</th>
+        <td mat-cell *matCellDef="let patient">{{patient.medHistory}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef width="100px">Details</th>
+        <td mat-cell *matCellDef="let patient">
+            <button mat-icon-button color="primary" (click)="redirectToDetails(patient.id)">
+                <mat-icon class="mat-18">reorder</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef width="100px">Update</th>
+        <td mat-cell *matCellDef="let patient">
+            <button mat-icon-button color="accent">
+                <mat-icon class="mat-18">system_update</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef width="100px">Delete</th>
+        <td mat-cell *matCellDef="let patient">
+            <button mat-icon-button color="warn">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
+</table>
+
+<mat-paginator #paginator [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="pageChange($event)" showFirstLastButtons></mat-paginator>

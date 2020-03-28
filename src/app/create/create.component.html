@@ -1,0 +1,110 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="900px" fxFlex.xs="100%">
+        <mat-card-title fxLayoutAlign="center center">Register a new Patient</mat-card-title>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayout="column wrap" fxLayoutGap="10px">
+           <!-- <mat-card-content>-->
+            <div flex fxLayoutGap="20px"> 
+                <label [formControl]="floatLabelControl">PatientName</label><br>
+                <mat-form-field >
+                    <mat-label>FirstName</mat-label>               
+                    <input matInput type="text" placeholder="FirstName" formControlName="firstName" id="firstName">
+                    <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                    <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+                  <mat-form-field >               
+                      <input matInput type="text" placeholder="LastName" formControlName="lastName" id="lastName">
+                      <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                      <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+            </div>
+
+            <div flex fxLayoutGap="10px">
+                <label [formControl]="floatLabelControl">PostalAddress</label><br>
+                <mat-form-field >               
+                    <input matInput type="text" placeholder="Line1" formControlName="line1" id="line1">
+                    <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+                    <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+                  <mat-form-field fxLayout="row">               
+                      <input matInput type="text" placeholder="Line2" formControlName="line2" id="line2">
+                      <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+                      <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+                  <mat-form-field >               
+                      <input matInput type="text" placeholder="City" formControlName="city" id="city">
+                      <!--<mat-hint align="end">Not more then 100 characters long.</mat-hint>-->
+                      <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+                  <mat-form-field >               
+                      <input matInput type="text" placeholder="State" formControlName="state" id="state">
+                      <!--<mat-hint align="end">Not more then 100 characters long.</mat-hint>-->
+                      <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+                  <mat-form-field >               
+                      <input matInput type="text" placeholder="Zip" formControlName="zip" id="zip">
+                      <!--<mat-hint align="end">Not more then 100 characters long.</mat-hint>-->
+                      <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+            </div>
+
+            <div>
+                <label>Gender: </label> 
+                <mat-radio-group >
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <label>Date Of Birth: </label> <br>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth" id="dateOfBirth"
+                      readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field > 
+                    <label>Email: </label> <br>              
+                    <input matInput type="text" placeholder="mailid" formControlName="mailid" id="mailid">
+                    <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field > 
+                    <label>PhoneNo: </label> <br>              
+                    <input matInput type="text" placeholder="phone" formControlName="phone" id="phone">
+                    <!--<mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                    <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>-->
+                  </mat-form-field>
+            </div>
+            <div>
+                <label>Marital Status: </label> 
+                <mat-radio-group >
+                    <mat-radio-button value="1">Married</mat-radio-button>
+                    <mat-radio-button value="2">UnMarried</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <label>Medical History: </label> <br>
+                <mat-checkbox >Dipression</mat-checkbox>
+                <mat-checkbox >Hypertension</mat-checkbox>
+            </div>
+            <!--
+            <mat-card-actions align="center">
+              <button mat-raised-button color="primary" [disabled]="!patientForm.valid">Register</button>
+              <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+            </mat-card-actions> -->
+           <!--<mat-card-content>-->
+        </form>
+    </mat-card>   
+</section>

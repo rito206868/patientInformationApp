@@ -1,0 +1,12 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <h1 mat-dialog-title ali class="task-header">&nbsp;&nbsp;{{data.title}}</h1>
+  <span class="fx-spacer"></span>
+  <mat-dialog-content>
+    <p>{{data.message}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-icon-button [mat-dialog-close]="true">
+      <mat-icon mat-list-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</section>

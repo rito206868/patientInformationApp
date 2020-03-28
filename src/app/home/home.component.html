@@ -1,0 +1,40 @@
+<section fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to the Patient Information Application</p>
+  </div>
+  
+    <mat-card>
+      <mat-card-title></mat-card-title>
+      <mat-card-content>
+          <p>In this application we are going to Register new patients and view the details of the registered patients.</p>
+          <p>Click on 'Register' to add/create a new Patient. Click on 'Patients' to get the list of available Patients.</p>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+          <button mat-raised-button color="primary" routerLink="/create">Register</button>
+          <button mat-raised-button color="primary"routerLink="/table">Patients</button>
+      </mat-card-actions>
+    </mat-card>
+    <!--
+    <div fxFlexAlign="center" >
+      <p>Welcome to the Patient Information Application</p>
+    </div>
+    <div fxLayout="column" fxFlexAlign="right center">
+      <p>In this application we are going to Register new patients and view the details of the registered patients</p>
+      <p>Click the below button to Register a new Patient</p>
+      <button mat-raised-button color="primary" fxLayoutAlign="center">Register</button>
+    </div>
+    -->
+        <!--
+        <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+          <mat-tab label="Material Components"> 
+            <p>We are going to use different material components to create nice looking angular app.</p> 
+          </mat-tab>
+          <mat-tab label="Consume .NET Core Web API">
+             <p>We will consume our .NET Core applicatoin. Basicaly, we will create complete CRUD client app.</p>
+            </mat-tab>
+          <mat-tab label="Fully responsive navigation menu">
+             <p>By using material components, we are going to create fully responsive navigation menu, with its side-bar as well.</p>
+            </mat-tab>
+        </mat-tab-group>
+        -->
+</section>
