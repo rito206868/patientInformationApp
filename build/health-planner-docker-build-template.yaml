@@ -10,6 +10,11 @@ metadata:
     iconClass: icon-jenkins
     tags: instant-app,jenkins
   name: haealth-planner-frontend-build-template
+parameters:
+- description: The GIT Url for healthplanner frontend codebase
+  displayName: Codebase URL
+  name: APPLICATION_CODEBASE_GIT_REPO
+  required: true
 
 objects:
 
@@ -22,7 +27,8 @@ objects:
   spec:
     runPolicy: "Serial"
     source:
-      type: "Binary"
+      git:
+        uri: "${APPLICATION_CODEBASE_GIT_REPO}"
     strategy:
       type: "Docker"
       dockerStrategy:
