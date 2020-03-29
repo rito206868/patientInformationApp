@@ -10,6 +10,7 @@ try {
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
 				sh 'npm install -g npm@latest'
+				sh 'npm install n -g && n stable && n latest'
 				sh 'npm install -g @angular/cli'
 				sh 'npm update'
 				sh 'ng build'
