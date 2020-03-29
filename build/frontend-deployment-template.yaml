@@ -42,7 +42,6 @@ objects:
         restartPolicy: Always
         terminationGracePeriodSeconds: 30
     triggers:
-      - type: ConfigChange
       - type: ImageChange
         imageChangeParams:
           automatic: true
