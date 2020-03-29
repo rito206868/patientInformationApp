@@ -31,6 +31,20 @@ try {
                     }
                 }
             }
+			
+			stage('UI Deployment') {
+
+                openshift.withCluster() {
+                    openshift.withProject() {   
+
+                        // create deployment resources
+                        openshift.apply(openshift.process("-f", "./build/frontend-deployment-template.yaml"))
+
+                        def deployment = openshift.selector("dc/healthplanner-frontend")
+                        deployment.rollout().status() //follow progress
+                    }
+                }
+            }
         }
     }
 } catch (err) {
