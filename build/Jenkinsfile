@@ -9,11 +9,10 @@ try {
                         , branch:"${BRANCH_NAME}",
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
-				sh 'npm install -g npm@latest'
-				sh 'sudo npm install n -g && sudo n stable && sudo n latest'
-				sh 'npm install -g @angular/cli'
-				sh 'npm update'
-				sh 'ng build'
+				sh 'npm install -d'
+				sh 'npm install --save classlist.js'
+				sh '$(npm bin)/ng build'
+				sh 'rm -rf node_modules'
                 
             }
             
