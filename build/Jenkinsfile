@@ -2,19 +2,19 @@ try {
     timeout(time: 20, unit: 'MINUTES') {
         node('nodejs') {
         	
-           // stage('Angular Build') {
+           stage('Angular Build') {
             	
                 //checkout application codebase
-             //   git(url:"${APPLICATION_CODEBASE_GIT_REPO}"
-               //         , branch:"${BRANCH_NAME}",
-                 //       credentialsId:'health-planner-github-repo-access-secret')
+                git(url:"${APPLICATION_CODEBASE_GIT_REPO}"
+                       , branch:"${BRANCH_NAME}",
+                        credentialsId:'health-planner-github-repo-access-secret')
                 //sh 'ls -lrst'
 				//sh 'npm install -g @angular/cli'
 				//sh 'npm install -g npm@latest'
 				//sh 'npm update'
 				//sh 'ng build'
                 
-           // }
+           }
             
             
             stage('Build Docker Image') {
