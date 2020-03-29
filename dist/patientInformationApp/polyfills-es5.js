@@ -20468,7 +20468,7 @@
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp_back\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
+    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
     "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
 
     __webpack_require__(
@@ -20476,15 +20476,15 @@
     "./node_modules/zone.js/dist/zone-legacy.js");
 
     __webpack_require__(
-    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp_back\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */
+    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */
     "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js");
 
     __webpack_require__(
-    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp_back\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */
+    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */
     "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-jit-polyfills.js");
 
     module.exports = __webpack_require__(
-    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp_back\src\polyfills.ts */
+    /*! C:\e-drive\IBM-Drive\Project\hackathon\healthplanner-ui\patientInformationApp\src\polyfills.ts */
     "./src/polyfills.ts");
     /***/
   }

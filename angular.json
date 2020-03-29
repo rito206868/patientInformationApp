@@ -59,7 +59,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "patientInformationApp:build",
-            "port": 8080
+            "port": 8081
           },
           "configurations": {
             "production": {

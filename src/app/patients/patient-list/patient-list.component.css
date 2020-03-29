@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+td {
+  vertical-align: top;
+  text-align: left;
+}
+
+.mat-column-medicalHistory {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 8% !important;
+  width: 8% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.gray {
+  background-color: #3b3636 !important;
+}

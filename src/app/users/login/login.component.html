@@ -1,0 +1,26 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title fxLayoutAlign="center center">Login</mat-card-title>
+
+    <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="login(loginForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="text" placeholder="User Name" formControlName="username" id="username">
+          <mat-error *ngIf="hasError('username', 'required')">User Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" id="password">
+          <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      
+      <mat-card-actions style="text-align: center;">
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+        <button type="button" mat-raised-button color="warn" (click)="loginForm.reset()">Reset</button>
+      </mat-card-actions>
+
+    </form>
+  </mat-card>
+</section>

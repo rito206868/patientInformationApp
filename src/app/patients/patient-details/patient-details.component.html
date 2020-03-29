@@ -1,0 +1,90 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="87%" fxFlex.xs="100%" style="border: 1;">
+
+    <mat-card-title fxLayoutAlign="center center">Registered Patient Details</mat-card-title>
+
+    <form [formGroup]="registerForm" autocomplete="off" novalidate>
+
+      <mat-card-content fxLayout="column wrap">
+
+        <div flex fxLayoutGap="30px">
+          <mat-label><b>Patient Name</b></mat-label><br>
+          <mat-form-field>
+            <input matInput type="text" placeholder="FirstName" formControlName="firstName" id="firstName">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="LastName" formControlName="lastName" id="lastName">
+          </mat-form-field>
+        </div>
+        <br>
+        <div flex fxLayoutGap="30px">
+          <mat-label><b>Postal Address</b></mat-label><br>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Line1" formControlName="line1" id="line1">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Line2" formControlName="line2" id="line2">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="text" placeholder="City" formControlName="city" id="city">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="State" formControlName="state" id="state">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Zip" formControlName="zip" id="zip">
+          </mat-form-field>
+        </div>
+        <div flex fxLayoutGap="30px">
+          <mat-label>Gender</mat-label>
+          <mat-radio-group formControlName="gender" id="gender">
+            <mat-radio-button *ngFor="let item of genders" [checked]="item.checked" [value]="item.value">
+              {{item.option}}
+              &nbsp;
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <br>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Date of Birth" formControlName="dateOfBirth"
+              id="dateOfBirth">
+          </mat-form-field>
+        </div>
+        <div flex fxLayoutGap="30px">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Email" formControlName="mailId" id="mailId">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="PhoneNo" formControlName="phone" id="phone">
+          </mat-form-field>
+        </div>
+        <div flex fxLayoutGap="30px">
+          <mat-label>Marital Status</mat-label>
+          <mat-radio-group formControlName="maritalStatus" id="maritalStatus">
+            <mat-radio-button *ngFor="let item of marital_status" [checked]="item.checked" [value]="item.value">
+              {{item.option}}
+              &nbsp;
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <br>
+        <div flex fxLayoutGap="30px">
+          <mat-label>Medical History</mat-label>
+          <ng-container *ngFor="let item of disease_type; let i = index">
+            <mat-checkbox [checked]="item.checked" [value]="item.name" disabled="true">{{item.name}}
+            </mat-checkbox>
+          </ng-container>
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions style="text-align: center;">
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+
+    </form>
+
+  </mat-card>
+</section>
