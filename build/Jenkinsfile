@@ -1,0 +1,40 @@
+try {
+    timeout(time: 20, unit: 'MINUTES') {
+        node('nodejs') {
+        	
+            stage('Angular Build') {
+            	
+                //checkout application codebase
+                git(url:"${APPLICATION_CODEBASE_GIT_REPO}"
+                        , branch:"${BRANCH_NAME}",
+                        credentialsId:'health-planner-github-repo-webhook-secret')
+                sh 'ls -lrst'
+				sh 'npm install -g @angular/cli'
+				sh 'npm update'
+				sh 'ng build'
+                
+            }
+            
+            
+            stage('Build Docker Image') {
+            	
+            	sh 'tar -cvf context.tar nginx dist build Dockerfile'
+            	
+                openshift.withCluster() {
+                    openshift.withProject() {
+                       
+                       	//  Run Docker Strategy Build for RWS Application
+                        openshift.apply(openshift.process("-f", "./build/health-planner-docker-build-template.yaml"))
+						openshift.startBuild("health-planner-frontend-docker-image-build", "--from-archive=context.tar", "--follow", "--wait")
+						
+                    }
+                }
+            }
+        }
+    }
+} catch (err) {
+    echo "in catch block"
+    echo "Caught: ${err}"
+    currentBuild.result = 'FAILURE'
+    throw err
+}   

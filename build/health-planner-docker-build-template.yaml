@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: haealth-planner-frontend-build-template
+message: Defines a docker strategy build config
+metadata:
+  annotations:
+    openshift.io/display-name: HealthPlanner Frontend Docker Strategy Build Config
+    description: Defines a docker strategy build config
+    iconClass: icon-jenkins
+    tags: instant-app,jenkins
+  name: haealth-planner-frontend-build-template
+
+objects:
+
+- apiVersion: v1
+  kind: "BuildConfig"
+  metadata:
+    name: "health-planner-frontend-docker-image-build"
+    labels:
+      app: "healthplanner-frontend"
+  spec:
+    runPolicy: "Serial"
+    source:
+      type: "Binary"
+    strategy:
+      type: "Docker"
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        env:
+          - name: "BUILD_LOGLEVEL"
+            value: "5"
+    output:
+      to:
+        kind: "ImageStreamTag"
+        name: "healthplanner-frontend"
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    labels:
+      app: healthplanner-frontend
+    name: healthplanner-frontend
