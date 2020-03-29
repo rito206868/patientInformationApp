@@ -9,6 +9,8 @@ try {
                         , branch:"${BRANCH_NAME}",
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
+				sh 'wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash'
+				sh 'nvm install 10.2.0 && nvm use 12'
 				sh ' npm install && npm run build'
                 
             }
