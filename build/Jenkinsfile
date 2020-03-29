@@ -1,6 +1,6 @@
 try {
     timeout(time: 20, unit: 'MINUTES') {
-        node('nodejs') {
+        node() {
         	
             stage('Angular Build') {
             	
@@ -9,8 +9,9 @@ try {
                         , branch:"${BRANCH_NAME}",
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
-				sh 'npm install -g @angular/cli'
 				sh 'npm install -g npm@latest'
+				sh 'npm install node@v10.13'
+				sh 'npm install -g @angular/cli'
 				sh 'npm update'
 				sh 'ng build'
                 
