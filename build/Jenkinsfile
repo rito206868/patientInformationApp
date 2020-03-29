@@ -1,36 +1,32 @@
 try {
     timeout(time: 20, unit: 'MINUTES') {
-        node() {
+        node('nodejs') {
         	
-            stage('Angular Build') {
+           // stage('Angular Build') {
             	
                 //checkout application codebase
-                git(url:"${APPLICATION_CODEBASE_GIT_REPO}"
-                        , branch:"${BRANCH_NAME}",
-                        credentialsId:'health-planner-github-repo-access-secret')
-                sh 'ls -lrst'
-				sh 'sudo yum install -y gcc-c++ make'
-				sh 'curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -'
-				sh 'sudo yum install nodejs'
-				sh 'npm install -g npm@latest'
-				//sh 'npm install node@v10.13'
-				sh 'npm install -g @angular/cli'
-				sh 'npm update'
-				sh 'ng build'
+             //   git(url:"${APPLICATION_CODEBASE_GIT_REPO}"
+               //         , branch:"${BRANCH_NAME}",
+                 //       credentialsId:'health-planner-github-repo-access-secret')
+                //sh 'ls -lrst'
+				//sh 'npm install -g @angular/cli'
+				//sh 'npm install -g npm@latest'
+				//sh 'npm update'
+				//sh 'ng build'
                 
-            }
+           // }
             
             
             stage('Build Docker Image') {
             	
-            	sh 'tar -cvf context.tar nginx dist build Dockerfile'
+            	//sh 'tar -cvf context.tar nginx build Dockerfile'
             	
                 openshift.withCluster() {
                     openshift.withProject() {
                        
-                       	//  Run Docker Strategy Build for RWS Application
+                       	//  Run Docker Strategy Build for Health Planner UI Application
                         openshift.apply(openshift.process("-f", "./build/health-planner-docker-build-template.yaml"))
-						openshift.startBuild("health-planner-frontend-docker-image-build", "--from-archive=context.tar", "--follow", "--wait")
+						openshift.startBuild("health-planner-frontend-docker-image-build", "--from-archive=.", "--follow", "--wait")
 						
                     }
                 }
