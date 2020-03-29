@@ -9,6 +9,7 @@ try {
                         , branch:"${BRANCH_NAME}",
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
+				sh 'npm install -g npm@latest'
 				sh 'npm install -g @angular/cli'
 				sh 'npm update'
 				sh 'ng build'
