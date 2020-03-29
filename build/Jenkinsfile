@@ -25,7 +25,7 @@ try {
                     openshift.withProject() {
                        
                        	//  Run Docker Strategy Build for Health Planner UI Application
-                        openshift.apply(openshift.process("-f", ".build/health-planner-docker-build-template.yaml", "-p", "APPLICATION_CODEBASE_GIT_REPO=${APPLICATION_CODEBASE_GIT_REPO}"))))
+                        openshift.apply(openshift.process("-f", ".build/health-planner-docker-build-template.yaml", "-p", "APPLICATION_CODEBASE_GIT_REPO=${APPLICATION_CODEBASE_GIT_REPO}"))
 						openshift.startBuild("health-planner-frontend-docker-image-build", "--follow", "--wait")
 						
                     }
