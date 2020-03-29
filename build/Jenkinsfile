@@ -9,9 +9,9 @@ try {
                         , branch:"${BRANCH_NAME}",
                         credentialsId:'health-planner-github-repo-access-secret')
                 sh 'ls -lrst'
-				sh 'yum install -y gcc-c++ make'
+				sh 'sudo yum install -y gcc-c++ make'
 				sh 'curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -'
-				sh 'yum install nodejs'
+				sh 'sudo yum install nodejs'
 				sh 'npm install -g npm@latest'
 				//sh 'npm install node@v10.13'
 				sh 'npm install -g @angular/cli'
