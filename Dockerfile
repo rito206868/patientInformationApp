@@ -1,3 +1,4 @@
+# Stage 1
 FROM node:12.16-alpine as node
 
 WORKDIR /usr/src/app
