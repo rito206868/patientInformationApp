@@ -24,10 +24,10 @@ COPY nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy from the stahg 1
-COPY --from=node /usr/src/app/dist/* /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/patientInformationApp /usr/share/nginx/html
 
-RUN chgrp -R 0 /var/cache/ /var/log/ /var/run/ /usr/share/nginx/html/ && \
-    chmod -R g=u /var/cache/ /var/log/ /var/run/ /usr/share/nginx/html/
+RUN chgrp -R 0 /var/cache/ /var/log/ /var/run/ && \
+    chmod -R g=u /var/cache/ /var/log/ /var/run/
 
 EXPOSE 8080
 
