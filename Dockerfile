@@ -1,6 +1,11 @@
 FROM node:12.16-alpine as node
 
+USER 1001
+
 WORKDIR /usr/src/app
+
+RUN chgrp -R 0 /usr/src/app/ && \
+	chmod -R g=u /usr/src/app/
 
 COPY package*.json ./
 
