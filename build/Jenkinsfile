@@ -19,7 +19,7 @@ try {
             
             stage('Build Docker Image') {
             	
-            	sh 'tar -cvf context.tar --exclude='node_modules' .'
+            	sh 'tar -cvf context.tar --exclude=node_modules .'
 				
             	
                 openshift.withCluster() {
