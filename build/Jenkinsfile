@@ -1,5 +1,5 @@
 try {
-    timeout(time: 20, unit: 'MINUTES') {
+    timeout(time: 25, unit: 'MINUTES') {
         node() {
         	
            stage('Angular Build') {
