@@ -4,9 +4,6 @@ USER 1001
 
 WORKDIR /usr/src/app
 
-RUN chgrp -R 0 /usr/src/app/ && \
-	chmod -R g=u /usr/src/app/
-
 COPY package*.json ./
 
 RUN npm install
@@ -14,6 +11,9 @@ RUN npm install
 COPY . .
 
 RUN npm run build
+
+RUN chgrp -R 0 /usr/src/app/ && \
+	chmod -R g=u /usr/src/app/
 
 # Stage 2
 FROM nginx:1.13.12-alpine
