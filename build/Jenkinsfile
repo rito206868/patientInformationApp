@@ -1,6 +1,6 @@
 try {
     timeout(time: 20, unit: 'MINUTES') {
-        node('nodejs-12') {
+        node() {
         	
            stage('Angular Build') {
             	
@@ -9,18 +9,18 @@ try {
                        , branch:"${BRANCH_NAME}",
                         credentialsId:"${NAMESPACE}-health-planner-github-repo-access-secret")
                 sh 'ls -lrst'
-				sh 'npm install -g @angular/cli'
-				sh 'npm install -g npm@latest'
-				sh 'npm update'
-				sh 'ng build'
+				//sh 'npm install -g @angular/cli'
+				//sh 'npm install -g npm@latest'
+				//sh 'npm update'
+				//sh 'ng build'
                 
            }
             
             
             stage('Build Docker Image') {
             	
-            	//sh 'tar -cvf context.tar --exclude=node_modules .'
-				  sh 'tar -cvf context.tar nginx dist Dockerfile'
+            	sh 'tar -cvf context.tar --exclude=node_modules .'
+				//sh 'tar -cvf context.tar nginx dist Dockerfile'
 				
             	
                 openshift.withCluster() {
