@@ -1,7 +1,5 @@
 FROM node:12.16-alpine as node
 
-USER 1001
-
 WORKDIR /usr/src/app
 
 COPY package*.json ./
